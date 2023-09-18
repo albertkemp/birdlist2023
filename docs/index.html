@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Year List</title>
+        <style>
+            li:nth-child(even) {
+                background-color: #c9c6c6;
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            li{padding:20px;font-size:20px;color:black};
+        </style>
+    </head>
+    <body>
+        <h1>Albert Kemp's Official Year List (2023)</h1>        
+        <h2 id="display1"></h2>
+        <div>
+            <ol id="yearlist">
+                Loading...
+            </ol>
+        </div>
+        <h2 id="display2"></h2>
+    </body>
+    <script>
+        const data = "Australian Pelican - Farm Dam, VIC  ///          Black Swan - Lake King, Metung VIC ///Silver Gull - Lake King, Metung VIC		///Little Pied Cormorant - Lake King, Metung VIC///Chestnut Teal - Lake King, Metung VIC	   ///Australian White Ibis - Lake King, Metung VIC///White-faced Heron - Lake King, Metung VIC///Little Corella - Metung, VIC///Galah - Metung, VIC///Red Wattlebird - Metung, VIC///Rainbow Lorikeet - Metung, VIC///Welcome Swallow - Metung, VIC///Crested Pigeon - Metung, VIC///Crimson Rosella - Metung, VIC///Australian Magpie - Metung, VIC///Common Bronzewing - Metung, VIC///Eurasian Blackbird - Metung, VIC///Magpie Lark - Metung, VIC///White-headed Pigeon - Metung, VIC///Little Raven - Metung, VIC///Indian Myna - Metung, VIC///Wood Duck - Lake King, Metung VIC///Little Wattlebird - Metung, VIC///Long-billed Corella - Bairnsdale, VIC///Sulphur-crested Cockatoo - Bairnsdale, VIC///Little Black Cormorant - Raymond Island, VIC///Great Cormorant - Raymond Island, VIC///Crested Tern - Raymond Island, VIC///Masked Lapwing - Raymond Island, VIC///Noisy Miner - Raymond Island, VIC///Musk Lorikeet - Raymond Island, VIC///Brown Thornbill - Lake King, Metung VIC///Australian Pied Oystercatcher - Lake King, Metung VIC///Superb Fairy-wren - Lake King, Metung VIC ///Pacific Gull - Lake King, Metung VIC///Grey Fantail - Nyeremilang NP, Nungurner VIC///Wonga Pigeon - Nyeremilang NP, Nungurner VIC///Laughing Kookaburra - Nyeremilang NP, Nungurner VIC///Rock Dove - Lakes Entrance, VIC///Eastern Whipbird - Lakes Entrance, VIC///Azure Kingfisher - Metung, VIC///Yellow-tailed Black Cockatoo - Metung, VIC///Peregrine Falcon - Metung, VIC///Common Starling - Metung, VIC///White-browed Scrubwren - Bairnsdale, VIC///Red-browed Finch - Bairnsdale, VIC///Swamp Harrier - Bairnsdale, VIC///Spotted Dove - Metung, VIC///Willie Wagtail - Metung, VIC///Pied Currawong - Cann River, VIC///House Sparrow - Cann River, VIC///Black-faced Cuckoo-shrike - Jindabyne, NSW///Dusky Woodswallow - Jindabyne, NSW///Eastern Rosella - Jindabyne, NSW///Australian Raven - Mount Kosciuszko, NSW///Australasian Pipit - Mount Kosciuszko, NSW///Australian Hobby - Mount Kosciuszko, NSW///Nankeen Kestrel - Jindabyne, NSW///Yellow-rumped Thornbill - Jindabyne, NSW///Yellow-faced Honeyeater - Thredbo River, NSW///Striated Pardalote - Thredbo Diggings, NSW///Wedge-tailed Eagle - Lake Jindabyne, NSW///Flame Robin - Jindabyne, NSW///Rufous Whistler - Jindabyne, NSW///Grey Currawong - Jindabyne, NSW///Emu - Jindabyne, NSW///Grey Butcherbird - Kew, Melbourne VIC///Australian Shelduck - Western Treatment Plant, VIC///Brolga - Western Treatment Plant, VIC///Pacific Black Duck - Western Treatment Plant, VIC///Brown Falcon - Western Treatment Plant, VIC///Yellow-billed Spoonbill - Western Treatment Plant, VIC///Royal Spoonbill - Western Treatment Plant, VIC///Golden-headed Cisticola - Western Treatment Plant, VIC///White-fronted Chat - Western Treatment Plant, VIC///Fairy Martin - Western Treatment Plant, VIC///Pink-eared Duck - Western Treatment Plant, VIC///Eurasian Coot - Western Treatment Plant, VIC///Grey Teal - Western Treatment Plant, VIC///Cape Barren Goose - Western Treatment Plant, VIC///Black Kite - Western Treatment Plant, VIC///New Holland Honeyeater - Mount Macedon, VIC///White-winged Chough - Mount Macedon, VIC///Silvereye - Point Cook, VIC///Australasian Grebe - Point Cook, VIC///Black-winged Stilt - Point Cook, VIC///Dusky Moorhen - Point Cook, VIC///White-plumed Honeyeater - Point Cook, VIC///European Goldfinch - Point Cook, VIC///Tree Martin - Point Cook, VIC///Purple Swamphen - Point Cook, VIC///Collared Sparrowhawk - Point Cook, VIC///Pied Cormorant - Point Cook, VIC///Black-faced Cormorant - Point Cook, VIC///Red-necked Stint - Point Cook, VIC///Common Tern - Point Cook, VIC///Tawny Frogmouth - Kew, Melbourne, VIC///King Parrot - Yellingbo, VIC///Helmeted Honeyeater - Yellingbo, VIC///Spotted Pardalote - Yellingbo, VIC///Eastern Yellow Robin - Yellingbo, VIC///Rufous Fantail - Yellingbo, VIC///White-naped Honeyeater - Yellingbo, VIC///Satin Flycatcher - Yellingbo, VIC///White-eared Honeyeater - Yellingbo, VIC///Grey Shrike-thrush - Yellingbo, VIC///Sacred Kingfisher - Yellingbo, VIC///Eastern Spinebill - Yellingbo, VIC///Striated Thornbill - Yellingbo, VIC///White-throated Treecreeper - Yellingbo, VIC///Bell Miner - Royal Botanic Gardens Melbourne, VIC///Golden Whistler - Western Treatment Plant, VIC///Straw-necked Ibis - Western Treatment Plant, VIC///Horsefield’s Bushlark - Western Treatment Plant, VIC///Great Egret - Western Treatment Plant, VIC///Australian Spotted Crake - Western Treatment Plant, VIC///Little Egret - Western Treatment Plant, VIC///Hoary-headed Grebe - Western Treatment Plant, VIC///Scarlet Robin - Dights Falls, Yarra River, VIC ///Western Gerygone - Dights Falls, Yarra River, VIC///Red-rumped Parrot - Melbourne-Koroit, VIC///Singing Honeyeater - Port Fairy, VIC///Ruddy Turnstone - Port Fairy, VIC///Sooty Oystercatcher - Griffiths Island, Port Fairy VIC///Kelp Gull - Griffiths Island, VIC///Musk Duck - Moyne River Reserve, VIC///Grey Goshawk - Rural Victoria near Budj Bim NP///Australasian Darter - Lake Surprise, Budj Bim NP VIC///Hardhead - Lake Surprise, Budj Bim NP, VIC///Whistling Kite - Lake Yambuk, Yambuk VIC///Double-banded Plover - Coast near Lake Yambuk///White-necked Heron - Rural Victoria near Port Fairy///Cattle Egret - Rural Victoria near Port Fairy///Fluttering Shearwater - Port Fairy Pelagic///Black-browed Albatross - Port Fairy Pelagic///Shy Albatross - Port Fairy Pelagic///Australasian Gannet - Port Fairy Pelagic///Bullers Albatross - Port Fairy Pelagic///Light-mantled Sooty Albatross - Port Fairy Pelagic///Great-winged Petrel - Port Fairy Pelagic///Northern Giant Petrel - Port Fairy Pelagic///Wandering Albatross - Port Fairy Pelagic///Cape Petrel - Port Fairy Pelagic///Northern Royal Albatross - Port Fairy Pelagic///Fairy Prion - Port Fairy Pelagic///Yellow-nosed Albatross - Port Fairy Pelagic///Southern Royal Albatross - Port Fairy Pelagic";
+        const listItems = data.split("///");
+        const total = listItems.length;
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById("display1").innerText = total + " bird species";
+            document.getElementById("display2").innerText = "Current total: " + total + " species";
+        });
+        document.getElementById("yearlist").innerHTML = "";
+        for (let item of listItems) {
+            const listItem = document.createElement("li");
+            listItem.innerText = item;
+            document.getElementById("yearlist").appendChild(listItem);
+        }
+    </script>
+</html>
