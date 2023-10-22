@@ -21,6 +21,13 @@
   margin-bottom: 12px;
   background-size:30px 30px;
 }
+#bgh1{
+  font-size: 200px;
+}
+#grh2{
+  font-size: 30px;
+}
+#bgh1, #grh2{color:grey;text-align: center;}
         </style>
     </head>
     <body>
@@ -64,9 +71,9 @@
                     <li>Australian Pied Oystercatcher - Lake King, Metung VIC</li>
                     <li>Superb Fairy-wren - Lake King, Metung VIC</li>
                     <li>Pacific Gull - Lake King, Metung VIC</li>
-                    <li>Grey Fantail - Nyerimilang NP, Nungurner VIC</li>
-                    <li>Wonga Pigeon - Nyerimilang NP, Nungurner VIC</li>
-                    <li>Laughing Kookaburra - Nyerimilang NP, Nungurner VIC</li>
+                    <li>Grey Fantail - Nyeremilang Heritage Park, Nungurner VIC</li>
+                    <li>Wonga Pigeon - Nyeremilang Heritage Park, Nungurner VIC</li>
+                    <li>Laughing Kookaburra - Nyeremilang Heritage Park, Nungurner VIC</li>
                     <li>Rock Dove - Lakes Entrance, VIC</li>
                     <li>Eastern Whipbird - Lakes Entrance, VIC</li>
                     <li>Azure Kingfisher - Metung, VIC</li>
@@ -126,21 +133,21 @@
                     <li>Red-necked Stint - Point Cook, VIC</li>
                     <li>Common Tern - Point Cook, VIC</li>
                     <li>Tawny Frogmouth - Kew, Melbourne, VIC</li>
-                    <li>King Parrot - Yellingbo, VIC</li>
-                    <li>Helmeted Honeyeater - Yellingbo, VIC</li>
-                    <li>Spotted Pardalote - Yellingbo, VIC</li>
-                    <li>Eastern Yellow Robin - Yellingbo, VIC</li>
-                    <li>Rufous Fantail - Yellingbo, VIC</li>
-                    <li>White-naped Honeyeater - Yellingbo, VIC</li>
-                    <li>Satin Flycatcher - Yellingbo, VIC</li>
-                    <li>White-eared Honeyeater - Yellingbo, VIC</li>
-                    <li>Grey Shrike-thrush - Yellingbo, VIC</li>
-                    <li>Sacred Kingfisher - Yellingbo, VIC</li>
-                    <li>Eastern Spinebill - Yellingbo, VIC</li>
-                    <li>Striated Thornbill - Yellingbo, VIC</li>
-                    <li>White-throated Treecreeper - Yellingbo, VIC</li>
+                    <li>King Parrot - Yellingbo VIC</li>
+                    <li>Helmeted Honeyeater - Yellingbo VIC</li>
+                    <li>Spotted Pardalote - Yellingbo VIC</li>
+                    <li>Eastern Yellow Robin - Yellingbo VIC</li>
+                    <li>Rufous Fantail - Yellingbo VIC</li>
+                    <li>White-naped Honeyeater - Yellingbo VIC</li>
+                    <li>Satin Flycatcher - Yellingbo VIC</li>
+                    <li>White-eared Honeyeater - Yellingbo VIC</li>
+                    <li>Grey Shrike-thrush - Yellingbo VIC</li>
+                    <li>Sacred Kingfisher - Yellingbo VIC</li>
+                    <li>Eastern Spinebill - Yellingbo VIC</li>
+                    <li>Striated Thornbill - Yellingbo VIC</li>
+                    <li>White-throated Treecreeper - Yellingbo VIC</li>
+                    <li>Golden Whistler - Yellingbo VIC</li>
                     <li>Bell Miner - Royal Botanic Gardens Melbourne, VIC</li>
-                    <li>Golden Whistler - Western Treatment Plant, VIC</li>
                     <li>Straw-necked Ibis - Western Treatment Plant, VIC</li>
                     <li>Horsefield’s Bushlark - Western Treatment Plant, VIC</li>
                     <li>Great Egret - Western Treatment Plant, VIC</li>
@@ -177,6 +184,10 @@
                     <li>Fairy Prion - Port Fairy Pelagic VIC</li>
                     <li>Yellow-nosed Albatross - Port Fairy Pelagic VIC</li>
                     <li>Southern Royal Albatross - Port Fairy Pelagic VIC</li>
+                    <li>Black-shouldered Kite - Western Treatment Plant VIC</li>
+                    <li>Red-necked Avocet - Western Treatment Plant VIC</li>
+                    <li>Australasian Shoveler - Western Treatment Plant VIC</li>
+                    <li>White-breasted Woodswallow - Shepparton Art Museum, Shepparton VIC</li>
             </ol>
         </div>
         <h2 id="display2"></h2>
@@ -186,8 +197,8 @@
        let display1 = document.getElementById("display1");
        let display2 = document.getElementById("display2");
        document.addEventListener("DOMContentLoaded", function() {
-              display1.innerHTML = amountOfBirds + " bird species";
-              display2.innerHTML = "Current total: " + amountOfBirds;
+              display1.innerHTML = amountOfBirds + " species";
+              display2.innerHTML = "Total: " + amountOfBirds;
        });
         function myFunction() {
   // Declare variables
@@ -197,16 +208,43 @@
   ul = document.getElementById("yearlist");
   li = ul.getElementsByTagName('li');
 
+  // Flag to check if any results are found
+  var resultsFound = false;
+
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
     txtValue = li[i].textContent || li[i].innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       li[i].style.display = "";
-    } else {
+      resultsFound = true; // Set to true if at least one result is found
+    } else if (input.value==""){
+      location.reload();
+    } 
+    else {
       li[i].style.display = "none";
     }
   }
+
+  // Display list items when there are search results or the input is empty
+  if (resultsFound || filter === "") {
+    clearNoResults();
+  } else {
+    noResults();
+  }
 }
+function noResults() {
+  let input = document.getElementById("myInput");
+  let yearlist = document.getElementById("yearlist");
+
+  let faces = ['(•.•)', '(•_•)', '(^_^)b', '(;-;)', '(°∆°)b', '(>_<)', '\\(o_o)/', '\\(^Д^)/', "(='X'=)", '(^-^*)', '(o^^)o'];
+
+  function random(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+yearlist.innerHTML = '<h1 id="bgh1">' + faces[random(faces.length)] + '</h1><h2 id="grh2">No results found.</h2>';
+}
+
 
     </script>
 </html>
